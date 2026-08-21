@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IDEA NAME — one-line hook</title>
+<!--
+  Spitball note template. This file IS the house style: copy it verbatim as the
+  starting point for a new note, keep the <style> block untouched, and fill the
+  sections. Section order below is the canonical vocabulary — omit sections that
+  don't apply yet; they get added as the idea sharpens.
+-->
+<style>
+  :root {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --ink: #24292f;
+    --muted: #6a737d;
+    --line: #d8d5cf;
+    --accent: #2f6f4f;
+    --accent-soft: #e4efe9;
+    --warn: #8a5a00;
+    --warn-soft: #f6ecd9;
+    --mono: ui-monospace, "JetBrains Mono", "Fira Code", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1c1e22;
+      --surface: #26292f;
+      --ink: #e4e6ea;
+      --muted: #9aa1ab;
+      --line: #3a3e46;
+      --accent: #7dbf9e;
+      --accent-soft: #2b3a33;
+      --warn: #d9a94e;
+      --warn-soft: #3a3225;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.6 system-ui, sans-serif;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.6rem; line-height: 1.3; margin: 0 0 .25rem; }
+  .subtitle { color: var(--muted); margin: 0 0 2rem; }
+  h2 {
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent);
+    margin: 2.5rem 0 .75rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--line);
+  }
+  p { margin: .6rem 0; }
+  code { font-family: var(--mono); font-size: .85em; background: var(--accent-soft); padding: .1em .35em; border-radius: 4px; }
+  .anchor {
+    background: var(--warn-soft);
+    border-left: 4px solid var(--warn);
+    padding: .75rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 1rem 0;
+  }
+  .anchor strong { color: var(--warn); }
+  .cards { display: grid; gap: .75rem; margin: 1rem 0; }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: .9rem 1.1rem;
+  }
+  .card h3 { margin: 0 0 .3rem; font-size: 1rem; }
+  .card .tag {
+    display: inline-block;
+    font-size: .72rem;
+    font-family: var(--mono);
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: 999px;
+    padding: .1rem .6rem;
+    margin-left: .4rem;
+    vertical-align: middle;
+  }
+  .card p { margin: .25rem 0 0; color: var(--muted); font-size: .92rem; }
+  ol, ul { padding-left: 1.4rem; }
+  li { margin: .35rem 0; }
+  li::marker { color: var(--accent); font-weight: 600; }
+  .cut { color: var(--muted); }
+  .cut li::marker { color: var(--muted); }
+  figure { margin: 1.25rem 0; }
+  figcaption { font-size: .85rem; color: var(--muted); margin-top: .5rem; }
+  .diagram {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  svg { display: block; width: 100%; height: auto; min-width: 560px; }
+  svg text { font: 13px/1.3 system-ui, sans-serif; fill: var(--ink); }
+  svg .small { font-size: 11px; fill: var(--muted); }
+  svg .box { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; rx: 8px; }
+  svg .core { stroke: var(--accent); }
+  svg .future { stroke-dasharray: 5 4; }
+  svg .flow { stroke: var(--muted); stroke-width: 1.5; fill: none; }
+  svg .label { font-size: 11px; fill: var(--accent); font-family: var(--mono); }
+  svg .chatfill { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+  svg .draftfill { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+  svg .warnfill { fill: var(--warn-soft); stroke: var(--warn); stroke-width: 1.5; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Idea name</h1>
+<p class="subtitle">Current one-paragraph identity of the idea — rewrite this every session so future-you re-opens the note and immediately knows what it is. End with: Captured YYYY-MM-DD from a Claude session. Planning budget if known.</p>
+
+<!-- THE ANCHOR QUESTION — the one question that gates everything else. -->
+<h2>The anchor question</h2>
+<div class="anchor">
+  <strong>The question itself?</strong>
+  <p>Why it's the anchor: what it decides downstream.</p>
+</div>
+
+<!-- FORKS — options as cards, a lean is allowed via tag, decision NOT forced. -->
+<h2>Name of the fork — N models</h2>
+<div class="cards">
+  <div class="card">
+    <h3>1. Option name <span class="tag">lean / status note</span></h3>
+    <p>One-paragraph mechanics + the tradeoff.</p>
+  </div>
+  <div class="card">
+    <h3>2. Option name</h3>
+    <p>…</p>
+  </div>
+</div>
+
+<!-- SKETCHES — inline SVG using the classes above.
+     Convention: solid .core boxes = build now; .future dashed = later phases;
+     .warnfill = risk/seam; .draftfill/.chatfill for UI mockups. -->
+<h2>Subsystem sketch</h2>
+<figure>
+  <div class="diagram">
+    <svg viewBox="0 0 720 200" role="img" aria-label="Describe the mechanism the diagram shows">
+      <rect class="box core" x="20" y="20" width="160" height="60"/>
+      <text x="100" y="45" text-anchor="middle">Now</text>
+      <text x="100" y="62" text-anchor="middle" class="small">detail line</text>
+      <line class="flow" x1="180" y1="50" x2="260" y2="50"/>
+      <text x="196" y="40" class="label">edge label</text>
+      <rect class="box future" x="260" y="20" width="160" height="60"/>
+      <text x="340" y="45" text-anchor="middle">Later</text>
+      <text x="340" y="62" text-anchor="middle" class="small">detail line</text>
+    </svg>
+  </div>
+  <figcaption>What the diagram claims, in one sentence.</figcaption>
+</figure>
+
+<h2>Build sequencing</h2>
+<ol>
+  <li><strong>Phase</strong> — what and why first.</li>
+</ol>
+
+<h2>Open decisions</h2>
+<ul>
+  <li>Undecided fork or question. Mark deferred ones: <strong>Parked:</strong> …</li>
+</ul>
+
+<h2>Deliberately cut — do not re-litigate</h2>
+<ul class="cut">
+  <li><strong>Thing</strong> — one-line reason it's out.</li>
+</ul>
+
+<!-- ASSESSMENT — only added when the user explicitly asked "is this good?". Dated. -->
+<h2>Assessment (YYYY-MM-DD)</h2>
+<ul>
+  <li><strong>Strong:</strong> …</li>
+  <li class="cut"><strong>Risks:</strong> …</li>
+</ul>
+
+</main>
+</body>
+</html>
